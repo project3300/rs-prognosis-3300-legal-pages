@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pocket AI Mechanic – User Guide</title>
+  <style>
+    :root {
+      --bg: #f5f4ef;
+      --bg-2: #ece7dd;
+      --panel: rgba(255,255,255,0.84);
+      --panel-solid: #fffdf8;
+      --ink: #17212b;
+      --muted: #5f6b76;
+      --line: #e7dfd2;
+      --brand: #0f766e;
+      --brand-2: #d97706;
+      --brand-3: #1d4ed8;
+      --ok: #166534;
+      --warn: #92400e;
+      --danger: #991b1b;
+      --hero-a: #0f766e;
+      --hero-b: #115e59;
+      --shadow-sm: 0 8px 24px rgba(15,23,42,.08);
+      --shadow-md: 0 18px 50px rgba(15,23,42,.12);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --toc-width: 290px;
+      --content-width: 1fr;
+      --screen-bg: #0f172a;
+      --device-frame: #131722;
+      --device-bezel: #202636;
+      --hero-text: #f8fffe;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0f1318;
+      --bg-2: #131920;
+      --panel: rgba(22,28,36,0.88);
+      --panel-solid: #161c24;
+      --ink: #ebf0f5;
+      --muted: #a7b4c0;
+      --line: #2a3440;
+      --brand: #34d399;
+      --brand-2: #f59e0b;
+      --brand-3: #60a5fa;
+      --ok: #4ade80;
+      --warn: #fbbf24;
+      --danger: #f87171;
+      --hero-a: #0f766e;
+      --hero-b: #134e4a;
+      --screen-bg: #0b1020;
+      --device-frame: #0a0d14;
+      --device-bezel: #232939;
+      --hero-text: #f8fffe;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(255,213,102,.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(15,118,110,.12), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      transition: background .25s ease, color .25s ease;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 18px 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      padding: 28px 28px 22px;
+      color: var(--hero-text);
+      background:
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,.16), transparent 0 18%),
+        linear-gradient(135deg, var(--hero-a) 0%, var(--hero-a) 54%, var(--hero-b) 100%);
+      box-shadow: var(--shadow-md);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -54px;
+      top: -40px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 38%;
+      bottom: -72px;
+      width: 240px;
+      height: 140px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      filter: blur(16px);
+      z-index: -1;
+    }
+
+    .hero-topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: .88rem;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .theme-toggle {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.12);
+      color: white;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .theme-toggle:hover { transform: translateY(-1px); background: rgba(255,255,255,.18); }
+
+    .hero-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, .9fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .hero .app-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,.45);
+      box-shadow: 0 14px 30px rgba(0,0,0,.18);
+      background: rgba(255,255,255,.16);
+      flex: 0 0 auto;
+    }
+
+    h1,h2,h3 { margin: 0 0 10px; line-height: 1.18; }
+    h1 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.02em; }
+    h2 { font-size: clamp(1.32rem, 2.3vw, 1.72rem); color: var(--ink); scroll-margin-top: 92px; }
+    h3 { font-size: 1.02rem; color: var(--ink); margin-top: 18px; }
+
+    p { margin: 0 0 12px; }
+    .sub {
+      max-width: 760px;
+      color: rgba(255,255,255,.92);
+      font-size: 1.03rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 20px;
+      padding: 18px;
+      backdrop-filter: blur(9px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.08);
+    }
+
+    .hero-card h3 { color: #fff; margin-bottom: 10px; font-size: 1rem; }
+    .hero-card p { color: rgba(255,255,255,.88); font-size: .95rem; }
+
+    .hero-points {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.9);
+      font-size: .95rem;
+    }
+    .hero-points li { margin-bottom: 8px; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: var(--toc-width) var(--content-width);
+      gap: 20px;
+      margin-top: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(12px);
+    }
+
+    .toc {
+      position: sticky;
+      top: 12px;
+      padding: 16px;
+    }
+
+    .toc-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .toc h2 { font-size: 1.08rem; margin: 0; }
+    .toc small { color: var(--muted); }
+
+    .toc nav {
+      display: grid;
+      gap: 4px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 9px 10px;
+      transition: all .15s ease;
+      font-size: .95rem;
+    }
+
+    .toc a:hover,
+    .toc a.active {
+      color: var(--brand-3);
+      background: rgba(29,78,216,.08);
+      border-color: rgba(29,78,216,.12);
+      transform: translateX(2px);
+    }
+
+    .content {
+      padding: 22px;
+    }
+
+    section {
+      margin-bottom: 28px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+    ul, ol { margin: 8px 0 12px 22px; }
+    li { margin-bottom: 7px; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15,118,110,.08);
+      color: var(--brand);
+      border: 1px solid rgba(15,118,110,.14);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: .82rem;
+      margin: 2px 6px 2px 0;
+      font-weight: 600;
+    }
+
+    .callout {
+      border-left: 5px solid var(--brand-2);
+      background: rgba(217,119,6,.08);
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin: 12px 0 16px;
+    }
+    .ok { border-left-color: var(--ok); background: rgba(22,101,52,.08); }
+    .warn { border-left-color: var(--warn); background: rgba(146,64,14,.08); }
+    .danger { border-left-color: var(--danger); background: rgba(153,27,27,.08); }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .shot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+      align-items: start;
+    }
+
+    .shot {
+      margin: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15,23,42,.08);
+    }
+
+    .device {
+      position: relative;
+      margin: 14px;
+      padding: 14px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, var(--device-frame), #0b1020);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.06),
+        0 18px 38px rgba(15,23,42,.22);
+    }
+
+    .device::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 88px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      z-index: 2;
+    }
+
+    .device-screen {
+      overflow: hidden;
+      border-radius: 18px;
+      background: var(--screen-bg);
+      border: 1px solid rgba(255,255,255,.06);
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+    }
+
+    .shot img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      margin: 0 auto;
+      background: transparent;
+    }
+
+    .shot figcaption {
+      padding: 0 14px 14px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .hint {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 16px 0 0;
+    }
+
+    .mini-card {
+      background: rgba(15,118,110,.05);
+      border: 1px solid rgba(15,118,110,.12);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 6px;
+      font-size: .98rem;
+      color: var(--brand);
+    }
+
+    code {
+      background: rgba(148,163,184,.14);
+      border: 1px solid rgba(148,163,184,.18);
+      border-radius: 8px;
+      padding: 2px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .93em;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    .print-note {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px dashed var(--line);
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+    }
+
+    @media (max-width: 1060px) {
+      .hero-main { grid-template-columns: 1fr; }
+      .layout { grid-template-columns: 1fr; }
+      .toc { position: static; }
+    }
+
+    @media (max-width: 720px) {
+      .page { padding: 14px 12px 32px; }
+      .hero { padding: 18px 18px 16px; border-radius: 20px; }
+      .content { padding: 16px; }
+      .hero-head { align-items: flex-start; }
+      .hero .app-icon { width: 58px; height: 58px; border-radius: 16px; }
+      .shot-grid { grid-template-columns: 1fr; }
+      .device { margin: 10px; }
+    }
+
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --bg-2: #ffffff;
+        --panel: #ffffff;
+        --panel-solid: #ffffff;
+        --ink: #111827;
+        --muted: #4b5563;
+        --line: #d1d5db;
+      }
+
+      body {
+        background: #fff !important;
+        color: #111827 !important;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      .hero {
+        box-shadow: none;
+        border: 1px solid #d1d5db;
+        background: linear-gradient(135deg, #0f766e 0%, #115e59 100%) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .theme-toggle { display: none !important; }
+      .layout { display: block; }
+      .toc {
+        position: static;
+        margin: 16px 0;
+        page-break-inside: avoid;
+      }
+      .content, .card, .shot, .mini-card {
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+      }
+      .shot-grid { grid-template-columns: repeat(2, 1fr); }
+      section { page-break-inside: avoid; }
+      .device::before { background: rgba(255,255,255,.22); }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-topbar">
+        <span class="chip">Project 3300</span>
+        <span class="chip">Updated: March 2026</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">Toggle theme</button>
+      </div>
+
+      <div class="hero-main">
+        <div>
+          <div class="hero-head">
+            <img class="app-icon" src="app_icon.png" alt="Pocket AI Mechanic app icon" />
+            <div>
+              <h1>Pocket AI Mechanic User Guide</h1>
+              <p class="sub">Pocket AI Mechanic is designed to help enthusiasts and everyday drivers quickly diagnose vehicle faults using an OBD adapter and AI‑assisted diagnostics.</p>
+            </div>
+          </div>
+
+          <div class="meta-row">
+            <span class="tag">Garage</span>
+            <span class="tag">Diagnose</span>
+            <span class="tag">History</span>
+            <span class="tag">Settings</span>
+            <span class="tag">OBD Snapshot</span>
+            <span class="tag">Follow-up AI</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Guide highlights">
+          <h3>In this guide</h3>
+          <ul class="hero-points">
+            <li>Add your vehicle or use photo identification to add it.</li>
+            <li>Create diagnosis requests and optionally add photos and or OBD data.</li>
+            <li>Review AI-assisted likely causes and troubleshooting steps.</li>
+            <li>Use OBD tools to scan codes, view live data, and clear faults.</li>
+            <li>Manage history, settings, and common troubleshooting issues.</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc card">
+        <div class="toc-head">
+          <h2>Contents</h2>
+          <small>Sticky nav</small>
+        </div>
+        <nav aria-label="Section navigation">
+          <a href="#quick-start">1. Quick Start</a>
+          <a href="#sign-in">2. Sign In Options</a>
+          <a href="#navigation">3. Main Navigation</a>
+          <a href="#garage">4. Garage</a>
+          <a href="#diagnose">5. Diagnose</a>
+          <a href="#results">6. Understanding Results</a>
+          <a href="#history">7. History</a>
+          <a href="#settings">8. Settings</a>
+          <a href="#obd-tools">9. OBD Tools</a>
+          <a href="#tips">10. Best Results Tips</a>
+          <a href="#troubleshooting">11. Troubleshooting</a>
+          <a href="#safety">12. Safety and Disclaimer</a>
+        </nav>
+      </aside>
+
+      <main class="content card">
+        <section id="quick-start">
+          <h2>1. Quick Start</h2>
+          <p class="section-intro">This is the fastest path from first launch to your first useful diagnosis.</p>
+          <ol>
+            <li>Open the app and sign in, or continue without signing in.</li>
+            <li>Go to <strong>Garage</strong> and add at least one vehicle.</li>
+            <li>Set the vehicle as <strong>Active</strong>.</li>
+            <li>Open <strong>Diagnose</strong>.</li>
+            <li>Enter issue details, add photos, and optionally attach an OBD snapshot.</li>
+            <li>Submit and review <strong>Likely Causes</strong> and <strong>Troubleshooting Steps</strong>.</li>
+          </ol>
+
+          <div class="feature-grid">
+            <div class="mini-card">
+              <h3>Start simple</h3>
+              <p>Even a short symptom description plus 1–2 clear photos can be enough to get a useful first pass.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Best practice</h3>
+              <p>Set the correct active vehicle first so the diagnosis uses the right engine, model, and context.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Improve confidence</h3>
+              <p>Attach OBD data whenever possible to give the app stronger technical signal.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="sign-in">
+          <h2>2. Sign In Options</h2>
+          <p class="section-intro">Sign-in controls whether your vehicles and reports can follow you across devices.</p>
+          <ul>
+            <li><strong>Google</strong>: available on all supported platforms.</li>
+            <li><strong>Facebook</strong>: available on mobile and desktop.</li>
+            <li><strong>Apple</strong>: available on iOS and macOS.</li>
+            <li><strong>Continue without signing in</strong>: data stays local on the current device.</li>
+          </ul>
+          <div class="callout warn">
+            If you use guest mode, reinstalling the app or clearing local storage can remove local data.
+          </div>
+          <div class="shot-grid">
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/01-login-screen.png" alt="Login screen with Google, Facebook, Apple, and guest options" />
+                </div>
+              </div>
+              <figcaption>Login options screen</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="navigation">
+          <h2>3. Main Navigation</h2>
+          <p class="section-intro">The navigation model is designed to keep the four core flows easy to reach.</p>
+          <ul>
+            <li><strong>Top bar search icon</strong>: opens global search.</li>
+            <li><strong>Profile icon</strong>: shows account info and logout.</li>
+            <li><strong>Bottom navigation</strong>: switches between Garage, Diagnose, History, and Settings.</li>
+          </ul>
+          <div class="shot-grid">
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/02-main-navigation.png" alt="Main app screen showing bottom navigation and top bar" />
+                </div>
+              </div>
+              <figcaption>Main navigation layout</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="garage">
+          <h2>4. Garage</h2>
+          <p class="section-intro">Your Garage is the source of truth for vehicle-specific diagnosis context.</p>
+          <h3>Add and manage vehicles</h3>
+          <ul>
+            <li>Tap <strong>Add Vehicle</strong> to create a vehicle record.</li>
+            <li>Each vehicle can include year, family/model, variant, gearbox, engine, VIN, and optional image.</li>
+            <li>Tap <strong>Set active</strong> on the vehicle you want to diagnose.</li>
+            <li>Open a vehicle to edit details, modifications, insurance info, and maintenance records.</li>
+          </ul>
+          <div class="callout ok">
+            Always set the correct active vehicle before submitting a diagnosis.
+          </div>
+          <div class="shot-grid">
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/03-garage-list.png" alt="Garage screen listing vehicles and active status" />
+                </div>
+              </div>
+              <figcaption>Garage vehicle list</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/04-add-vehicle.png" alt="Add Vehicle form" />
+                </div>
+              </div>
+              <figcaption>Add or edit vehicle screen</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/04-add-vehicle-3.png" alt="Additional Add Vehicle screen example" />
+                </div>
+              </div>
+              <figcaption>Additional add vehicle example</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="diagnose">
+          <h2>5. Diagnose</h2>
+          <p class="section-intro">This is the heart of the app: describe the issue, add supporting context, and let the engine build a diagnosis.</p>
+
+          <h3>Create a diagnosis request</h3>
+          <ol>
+            <li>Confirm the active vehicle shown at the top.</li>
+            <li>Enter clear issue details in symptom text.</li>
+            <li>Add tags for easier history filtering later.</li>
+            <li>Add photos using the camera or image picker.</li>
+            <li>Optionally run <strong>OBD Scan for Diagnosis</strong> and attach a snapshot.</li>
+            <li>Tap submit to run diagnosis.</li>
+          </ol>
+
+          <h3>Low-signal diagnosis flow</h3>
+          <p>If the app needs more detail, it can ask guided clarifying questions before a final result is refined.</p>
+          <ul>
+            <li>Answer guided prompts and apply the details back to issue text.</li>
+            <li>Resubmit with improved symptom context.</li>
+          </ul>
+          <div class="shot-grid">
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/05-diagnose-form.png" alt="Diagnose form with symptom text, tags, and image options" />
+                </div>
+              </div>
+              <figcaption>Diagnose request form</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/05-diagnose-form3.png" alt="Likely causes" />
+                </div>
+              </div>
+              <figcaption>Camera and image capture flow</figcaption>
+            </figure>
+          </div>
+        </section>
+<h3>OBD snapshot flow</h3>
+          <ul>
+            <li>Open OBD connect and initialize your adapter.</li>
+            <li>Run snapshot to capture VIN, DTCs, and selected live or freeze-frame values.</li>
+            <li>Tap <strong>Attach to Diagnosis</strong>.</li>
+          </ul>
+
+          <div class="callout warn">
+            If the ECU is not responding, switch ignition to ON, wait a few seconds, and retry snapshot.
+          </div>
+ <div class="shot-grid">
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/OBD_20260312-162012.png" alt="Diagnose form with symptom text, tags, and image options" />
+                </div>
+                </div>
+                </figure>
+                  <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/OBD_20260312-162033.png" alt="Diagnose form with symptom text, tags, and image options" />
+                </div>
+                </div>
+                </figure> 
+                <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/OBD_20260312-162052.png" alt="Diagnose form with symptom text, tags, and image options" />
+                </div>
+                </div>
+                </figure>
+<figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/OBD_clear.png" alt="Diagnose form with symptom text, tags, and image options" />
+                </div>
+                </div>
+                </figure>
+          </div>
+        <section id="results">
+          <h2>6. Understanding Results</h2>
+          <p class="section-intro">The results view balances ranked conclusions with practical next actions.</p>
+          <p>The results screen has two tabs:</p>
+          <ul>
+            <li><strong>Likely Causes</strong>: ranked causes with rationale and difficulty.</li>
+            <li><strong>Troubleshooting Steps</strong>: ordered actions; tap a step for detail.</li>
+          </ul>
+
+          <h3>Context panels you may see</h3>
+          <ul>
+            <li><strong>Safety</strong> warning text when relevant.</li>
+            <li><strong>OBD context attached / not attached</strong>.</li>
+            <li><strong>AI analysis status</strong>: used, unavailable, or runtime unavailable.</li>
+            <li><strong>Need more details</strong>: guided prompts for refinement.</li>
+          </ul>
+
+          <h3>Follow-up Q&amp;A</h3>
+          <ul>
+            <li>Use <strong>Guided Details</strong> chips or text fields, then tap <strong>Submit Answers</strong>.</li>
+            <li>Ask free-form follow-up questions with <strong>Ask AI</strong>.</li>
+            <li>Clear the follow-up conversation from the same card if needed.</li>
+          </ul>
+          <div class="shot-grid">
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/Diag_results.png" alt="Diagnosis results likely causes tab" />
+                </div>
+              </div>
+              <figcaption>Likely Causes tab</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/Diag_results_2.png" alt="Diagnosis results troubleshooting steps tab" />
+                </div>
+              </div>
+              <figcaption>Troubleshooting Steps tab</figcaption>
+            </figure>
+          </div>
+        </section>
+        <section id="history">
+          <h2>7. History</h2>
+          <p class="section-intro">History is where repeatability and learning start to matter.</p>
+          <ul>
+            <li>View previous reports by date.</li>
+            <li>Search by symptom text or tags.</li>
+            <li>Filter by vehicle and sort by date, vehicle, or confidence.</li>
+            <li>Open any report to revisit full results.</li>
+            <li>Select multiple reports for bulk delete.</li>
+            <li>Export visible reports as CSV for copy or reuse.</li>
+          </ul>
+         
+        </section>
+
+        <section id="settings">
+          <h2>8. Settings</h2>
+          <p class="section-intro">Settings gives users control over AI, OBD, appearance, and local data management.</p>
+          <h3>OBD</h3>
+          <ul>
+            <li>Open BLE connect flow for real adapter use.</li>
+          </ul>
+
+          <h3>Appearance and preferences</h3>
+          <ul>
+            <li>Theme: System, Light, or Dark.</li>
+            <li>Units: Metric or Imperial.</li>
+            <li>Notifications: maintenance reminders and alerts.</li>
+          </ul>
+
+          <h3>Data management</h3>
+          <ul>
+            <li><strong>Knowledge Packs</strong>: view diagnostic knowledge database.</li>
+            <li><strong>Export Data</strong>: export vehicles, reports, and settings JSON in-app.</li>
+            <li><strong>Import Data</strong>: paste exported JSON to restore data.</li>
+            <li><strong>Clear Cache</strong>: clears local cached settings and data.</li>
+          </ul>
+        </section>
+        <section id="obd-tools">
+          <h2>9. OBD Tools</h2>
+          <p class="section-intro">Use the OBD tools to connect to your adapter, scan diagnostic trouble codes, review live data, and clear faults after repairs.</p>
+
+          <h3>Quick start</h3>
+          <ol>
+            <li>Plug your OBD adapter into the vehicle’s OBD port.</li>
+            <li>Turn the ignition to ON.</li>
+            <li>Open the app and connect to your Bluetooth OBD adapter.</li>
+            <li>Run a scan to read stored fault codes and vehicle data.</li>
+          </ol>
+
+          <div class="callout ok">
+            A stable Bluetooth adapter connection gives the best results for scanning, live data, and code clearing.
+          </div>
+
+          <h3>Read fault codes</h3>
+          <ol>
+            <li>Open the OBD tools area and start a diagnostic scan.</li>
+            <li>Review any detected Diagnostic Trouble Codes (DTCs).</li>
+            <li>Open a code to see details and related diagnostic context.</li>
+            <li>Use the AI-assisted results to review likely causes and recommended checks.</li>
+          </ol>
+
+          <h3>View live data</h3>
+          <p>Use the live data dashboard to monitor values such as engine RPM, coolant temperature, throttle position, and other supported sensor readings in real time.</p>
+           <div class="shot-grid">
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/live_data.png" alt="Diagnostic scan showing live data" />
+                </div>
+              </div>
+              <figcaption>Live data feed</figcaption>
+            </figure>
+          </div>
+          <h3>Clear OBD faults</h3>
+          <ol>
+            <li>Only clear codes after repairs or checks have been completed.</li>
+            <li>From the fault code view, tap <strong>Clear Codes</strong>.</li>
+            <li>Confirm the action when prompted.</li>
+            <li>Run another scan to confirm whether the codes remain cleared.</li>
+          </ol>
+
+          <div class="callout warn">
+            Clearing codes can also reset the check engine light. If the underlying issue is still present, the fault may return.
+          </div>
+
+          <h3>Supported vehicles</h3>
+          <p>Pocket AI Mechanic has be launched with a very focused vehicle range. Renault Sport models (Clio RS, Megane RS) and Ford Mustang 2015+.  Our goal is to continually validate AI findings with real world expert mechanics. The LLM's we use are already challenging even the most experienced expert specialist mechanics and the AI will naturally continue to improve month on month. </p>
+
+          <div class="shot-grid">
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/550hoist.jpg" alt="Diagnostic scan showing detected fault codes" />
+                </div>
+              </div>
+              <figcaption>Diagnostic scan with detected fault codes</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/650hoist.jpg" alt="Compact DTC detail view" />
+                </div>
+              </div>
+              <figcaption>DTC detail view</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/garage_zoom_cropped.png" alt="Live OBD data dashboard" />
+                </div>
+              </div>
+              <figcaption>Live OBD data dashboard</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/IMG_1790.png" alt="Clear codes confirmation prompt" />
+                </div>
+              </div>
+              <figcaption>Clear codes confirmation</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="device">
+                <div class="device-screen">
+                  <img src="screenshots/IMG_1789.png" alt="Post-clear scan showing no remaining fault codes" />
+                </div>
+              </div>
+              <figcaption>Post-clear scan after clearing codes</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="tips">
+          <h2>10. Best Results Tips</h2>
+          <ul>
+            <li>Describe when the problem happens: cold start, hot idle, under load, or specific RPM.</li>
+            <li>Include recent work performed and any new noises or smells.</li>
+            <li>Add clear, well-lit photos from multiple angles.</li>
+            <li>Attach an OBD snapshot whenever possible for better diagnostic context.</li>
+            <li>Use follow-up questions to narrow uncertain results.</li>
+          </ul>
+        </section>
+
+       
+        <section id="safety">
+          <h2>12. Safety and Disclaimer</h2>
+          <div class="callout danger">
+            This app provides diagnostic guidance only. It does not replace a qualified mechanic, workshop manuals, or safe repair procedures.
+          </div>
+          <ul>
+            <li>Do not drive a vehicle if a fault could compromise braking, steering, or engine safety.</li>
+            <li>Follow workshop safety standards and use proper tools and PPE.</li>
+            <li>For high-risk or uncertain findings, seek professional inspection.</li>
+          </ul>
+        </section>
+
+        <p class="footer">Pocket AI Mechanic by Project 3300</p>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const button = document.getElementById('themeToggle');
+      const savedTheme = localStorage.getItem('pocket-ai-mechanic-theme');
+
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        root.setAttribute('data-theme', savedTheme);
+      }
+
+      button?.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('pocket-ai-mechanic-theme', next);
+      });
+
+      const links = Array.from(document.querySelectorAll('.toc a'));
+      const sections = links
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      const activate = (id) => {
+        links.forEach(link => {
+          const active = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('active', active);
+        });
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target?.id) activate(visible.target.id);
+      }, {
+        rootMargin: '-25% 0px -55% 0px',
+        threshold: [0.2, 0.45, 0.7]
+      });
+
+      sections.forEach(section => observer.observe(section));
+      if (sections[0]) activate(sections[0].id);
+    })();
+  </script>
+</body>
+</html>
+
