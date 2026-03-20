@@ -1,4 +1,4 @@
-# RS Prognosis 3300 Legal Pages
+# Pocket AI Mechanic Legal Pages
 
 Static legal pages for Facebook Login requirements.
 
