@@ -3,183 +3,390 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pocket AI Mechanic helps drivers diagnose faults with OBD data, vehicle context, and AI-assisted troubleshooting." />
-  <meta name="theme-color" content="#0f766e" />
+  <meta
+    name="description"
+    content="Pocket AI Mechanic is the AI-powered mechanic assistant for drivers who want smarter diagnostics from photos, sounds, symptoms, and OBD data."
+  />
+  <meta name="theme-color" content="#08141b" />
   <title>Pocket AI Mechanic</title>
   <link rel="icon" type="image/png" href="assets/icons/app_icon.png" />
   <link rel="apple-touch-icon" href="assets/icons/app_icon.png" />
   <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+  />
   <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="landing.css" />
+  <script src="landing.js" defer></script>
 </head>
-<body>
-  <div class="page-shell">
-    <header class="site-header">
-      <a class="brand-lockup" href="/" aria-label="Pocket AI Mechanic home">
-        <img src="../assets/icons/app_icon.png" alt="Pocket AI Mechanic app icon" />
+<body class="landing-body">
+  <div class="page-shell page-shell--landing">
+    <header class="site-header landing-header" data-header>
+      <a class="brand-lockup landing-lockup" href="/" aria-label="Pocket AI Mechanic home">
+        <img src="assets/icons/app_icon.png" alt="Pocket AI Mechanic app icon" />
         <span>
           <span class="brand-kicker">Pocket AI Mechanic</span>
-          <span class="brand-name">AI-assisted diagnostics for focused performance vehicles</span>
+          <span class="brand-name">AI-powered diagnosis for real car problems</span>
         </span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="site-nav landing-nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#app-preview">App Preview</a>
+        <a href="#faq">FAQ</a>
         <a href="support/">Support</a>
-        <a href="guide/">User Guide</a>
-        <a href="privacy/">Privacy</a>
-        <a href="terms/">Terms</a>
-        <a href="delete-data/">Data Deletion</a>
       </nav>
+      <a class="button-link primary header-cta" href="#waitlist">Join the Waitlist</a>
     </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Vehicle diagnostics without workshop guesswork</div>
-          <h1>Pocket AI Mechanic helps drivers move from raw scan data to a usable next step.</h1>
-          <p>
-            Built for focused real-world troubleshooting: connect a BLE OBD adapter, capture symptoms and photos,
-            then work through likely causes with guided, AI-assisted diagnostics instead of relying on a fault-code list alone.
+    <main class="landing-main">
+      <!-- Hero -->
+      <section class="landing-hero" id="top">
+        <div class="hero-copy" data-reveal>
+          <span class="eyebrow">AI mechanic assistant</span>
+          <h1>Your AI Mechanic, In Your Pocket.</h1>
+          <p class="hero-lead">
+            Diagnose smarter with an app that can read the whole problem: photos, written symptoms,
+            engine sounds, and Bluetooth OBD data combined into one practical analysis flow.
+          </p>
+          <p class="hero-support">
+            Pocket AI Mechanic gives drivers and enthusiasts a faster route from strange behaviour to
+            likely causes, guided checks, and a clearer next step before the workshop invoice starts.
           </p>
           <div class="hero-actions">
-            <a class="button-link primary" href="guide/">Open user guide</a>
-            <a class="button-link secondary" href="support/">Contact support</a>
+            <a class="button-link primary" href="#waitlist">Join the Waitlist</a>
+            <a class="button-link secondary" href="#features">See Features</a>
+            <a class="button-link tertiary" href="#how-it-works">View How It Works</a>
           </div>
-          <div class="stat-grid">
-            <div class="stat-card">
-              <strong>OBD + AI</strong>
-              <span>Combines adapter data, symptoms, and guided reasoning.</span>
-            </div>
-            <div class="stat-card">
-              <strong>Focused scope</strong>
-              <span>Current public scope centers on Renault Sport and Ford Mustang 2015+ workflows.</span>
-            </div>
-            <div class="stat-card">
-              <strong>Email support</strong>
-              <span>Direct help via support@pocketaimechanic.com.</span>
-            </div>
+          <div class="hero-trust-row">
+            <span class="trust-chip">Photo analysis</span>
+            <span class="trust-chip">Sound-aware diagnosis</span>
+            <span class="trust-chip">Bluetooth OBD ready</span>
+            <span class="trust-chip">Early-access signup open</span>
           </div>
         </div>
-        <div class="hero-panel">
-          <div class="hero-screenshot">
-            <img src="screenshots/15-obd-connect.png" alt="Pocket AI Mechanic OBD connect screen" />
+
+        <div class="hero-visual" data-reveal>
+          <div class="signal-surface glass-panel">
+            <div class="surface-head">
+              <span>Diagnostic Engine</span>
+              <span>Multi-input session</span>
+            </div>
+            <div class="surface-grid">
+              <article class="surface-card">
+                <span class="surface-label">Input</span>
+                <strong>Symptoms + media</strong>
+                <p>Describe the issue, upload a photo, or record the sound that matters.</p>
+              </article>
+              <article class="surface-card">
+                <span class="surface-label">Vehicle context</span>
+                <strong>VIN, profile, OBD</strong>
+                <p>Pull the evidence into one place instead of treating fault codes as the whole story.</p>
+              </article>
+              <article class="surface-card surface-card--accent">
+                <span class="surface-label">Output</span>
+                <strong>Likely causes + next checks</strong>
+                <p>Get targeted guidance that feels closer to diagnostic reasoning than generic search.</p>
+              </article>
+            </div>
           </div>
+
+          <div class="device-cluster">
+            <figure class="device-frame device-frame--primary">
+              <img src="screenshots/Diag_results.png" alt="Pocket AI Mechanic diagnosis results with ranked likely causes and steps" />
+            </figure>
+            <figure class="device-frame device-frame--secondary">
+              <img src="screenshots/15-obd-connect.png" alt="Pocket AI Mechanic OBD connection flow" />
+            </figure>
+            <div class="floating-signal floating-signal--top">Photo + sound + OBD</div>
+            <div class="floating-signal floating-signal--bottom">Fast, practical insight</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proof Strip -->
+      <section class="proof-strip" aria-label="Pocket AI Mechanic proof points">
+        <article class="proof-panel" data-reveal>
+          <span class="panel-kicker">Diagnose smarter</span>
+          <h2>See more than a fault code.</h2>
+          <p>Generic code readers show a label. Pocket AI Mechanic helps interpret the situation around it.</p>
+        </article>
+        <article class="proof-stat" data-reveal>
+          <strong>Multi-input AI</strong>
+          <span>Symptoms, images, sound, and ECU context combined in one flow.</span>
+        </article>
+        <article class="proof-stat" data-reveal>
+          <strong>Workshop-ready thinking</strong>
+          <span>Likely causes, follow-up prompts, and concrete next checks instead of vague advice.</span>
+        </article>
+      </section>
+
+      <!-- Core Features -->
+      <section class="landing-section" id="features" aria-labelledby="features-title">
+        <div class="section-intro" data-reveal>
+          <span class="section-tag">Core AI features</span>
+          <h2 id="features-title">From symptoms to insight.</h2>
           <p>
-            The app is designed to make scan data more actionable, not just surface fault codes.
-            Capture symptoms, attach photos, review likely causes, and work through next actions in one place.
+            The product is designed around how real diagnosis happens: collect signal, analyse the evidence,
+            and decide the next move with more confidence.
           </p>
-          <div class="pill-row">
-            <span class="pill">BLE OBD adapters</span>
-            <span class="pill">Diagnosis history</span>
-            <span class="pill">AI follow-up questions</span>
-          </div>
         </div>
-      </section>
-
-      <section class="content-block">
-        <div class="section-heading">
-          <div>
-            <h2 class="section-title">What Pocket AI Mechanic does</h2>
-            <p class="section-copy">
-              Keep the public site practical: explain the product clearly, route support requests,
-              publish legal pages, and host the guide in both browser and download-friendly formats.
-            </p>
-          </div>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <h3>Capture real context</h3>
-            <p>Combine symptoms, photos, vehicle details, and scan results so the diagnosis has more than a generic code description to work with.</p>
+        <div class="feature-grid">
+          <article class="feature-card glass-panel" data-reveal>
+            <span class="feature-icon">AI</span>
+            <h3>AI Fault Diagnosis</h3>
+            <p>Turn vague symptoms into ranked likely causes with reasoning that stays anchored to the evidence you provided.</p>
           </article>
-          <article class="card">
-            <h3>Work through likely causes</h3>
-            <p>Use guided AI-assisted reasoning to narrow likely causes and produce more useful troubleshooting paths.</p>
+          <article class="feature-card glass-panel" data-reveal>
+            <span class="feature-icon">CAM</span>
+            <h3>Photo-Based Problem Detection</h3>
+            <p>Use images of warning lights, leaks, damage, components, or VIN labels to add visual context instantly.</p>
           </article>
-          <article class="card">
-            <h3>Stay operationally clear</h3>
-            <p>Give users one branded place to find support contact details, documentation, privacy information, and deletion instructions.</p>
+          <article class="feature-card glass-panel" data-reveal>
+            <span class="feature-icon">MIC</span>
+            <h3>Engine and Noise Analysis</h3>
+            <p>Capture unusual ticks, knocks, or other mechanical sounds and let the app factor them into the diagnosis.</p>
           </article>
-        </div>
-      </section>
-
-      <section class="content-block">
-        <div class="section-heading">
-          <div>
-            <h2 class="section-title">Launch and access</h2>
-            <p class="section-copy">Keep this simple until the release flow matures: one route for launch updates, one route for support, and one route for documentation.</p>
-          </div>
-        </div>
-        <div class="resource-grid">
-          <article class="resource-card featured">
-            <span class="kicker">Launch updates</span>
-            <h3>Join the early-access list</h3>
-            <p>If you want release updates or want to be notified when broader vehicle and adapter support lands, email the support inbox with a short note.</p>
-            <a class="text-link" href="mailto:support@pocketaimechanic.com?subject=Pocket%20AI%20Mechanic%20Launch%20Updates">Request launch updates</a>
+          <article class="feature-card glass-panel" data-reveal>
+            <span class="feature-icon">OBD</span>
+            <h3>OBD Insights</h3>
+            <p>Pair compatible Bluetooth OBD hardware and strengthen the diagnosis with VIN, trouble codes, and live data context.</p>
           </article>
-          <article class="resource-card">
-            <span class="kicker">Need the guide offline?</span>
-            <h3>Use the downloadable version</h3>
-            <p>The browser guide should be the default, but the PDF remains useful when you need an offline document or something you can forward directly.</p>
-            <a class="text-link subtle" href="download/">Open download options</a>
+          <article class="feature-card glass-panel" data-reveal>
+            <span class="feature-icon">FIX</span>
+            <h3>Guided Troubleshooting</h3>
+            <p>Get sharper follow-up questions and smarter next checks when the first pass needs more detail.</p>
+          </article>
+          <article class="feature-card glass-panel" data-reveal>
+            <span class="feature-icon">PRO</span>
+            <h3>Repair Guidance</h3>
+            <p>Keep a cleaner path from issue discovery to action with saved cases, history, exports, and repair-oriented context.</p>
           </article>
         </div>
       </section>
 
-      <section class="content-block">
-        <div class="section-heading">
-          <div>
-            <h2 class="section-title">Resources</h2>
-            <p class="section-copy">Host the guide directly on the domain and give users a PDF fallback only when they explicitly need a download.</p>
-          </div>
+      <!-- How It Works -->
+      <section class="landing-section" id="how-it-works" aria-labelledby="how-it-works-title">
+        <div class="section-intro" data-reveal>
+          <span class="section-tag">How it works</span>
+          <h2 id="how-it-works-title">Smarter car troubleshooting starts here.</h2>
+          <p>A streamlined workflow keeps the experience easy to scan, fast to use, and grounded in useful automotive evidence.</p>
         </div>
-        <div class="resource-grid">
-          <article class="resource-card featured">
-            <span class="kicker">Primary guide</span>
-            <h3>Read the browser version</h3>
-            <p>The HTML guide is the best fit for web hosting because screenshots stay sharp and the page is easier to update.</p>
-            <a class="text-link" href="guide/">Open the user guide</a>
+        <div class="workflow-grid workflow-grid--landing">
+          <article class="workflow-step glass-panel" data-reveal>
+            <span class="workflow-number">01</span>
+            <h3>Capture the issue</h3>
+            <p>Describe what the car is doing, add a photo, or record the sound that stands out.</p>
           </article>
-          <article class="resource-card">
-            <span class="kicker">Download</span>
-            <h3>PDF fallback</h3>
-            <p>Use the PDF when you need an offline copy or a document you can forward directly to someone else.</p>
-            <a class="text-link subtle" href="download/">Download PDF guide</a>
+          <article class="workflow-step glass-panel" data-reveal>
+            <span class="workflow-number">02</span>
+            <h3>Add vehicle evidence</h3>
+            <p>Bring in VIN, profile details, and Bluetooth OBD context when available.</p>
+          </article>
+          <article class="workflow-step glass-panel" data-reveal>
+            <span class="workflow-number">03</span>
+            <h3>Let the AI analyse it</h3>
+            <p>The app weighs symptoms, visual cues, sound, and ECU data together instead of in isolation.</p>
+          </article>
+          <article class="workflow-step glass-panel" data-reveal>
+            <span class="workflow-number">04</span>
+            <h3>Take the next step with confidence</h3>
+            <p>Review likely causes, smart follow-up prompts, and practical checks before booking work.</p>
           </article>
         </div>
       </section>
 
-      <section class="content-block">
-        <div class="section-heading">
-          <div>
-            <h2 class="section-title">Support and legal</h2>
-            <p class="section-copy">Keep trust signals together on the root domain rather than splitting them across unrelated links.</p>
-          </div>
+      <!-- Why Different -->
+      <section class="landing-section landing-section--split" aria-labelledby="difference-title">
+        <div class="section-intro" data-reveal>
+          <span class="section-tag">Why it is different</span>
+          <h2 id="difference-title">Built for real car problems, not generic search results.</h2>
+          <p>
+            Forums and search engines can surface fragments. Pocket AI Mechanic is built to give targeted,
+            actionable guidance around the exact issue in front of you.
+          </p>
         </div>
-        <div class="legal-grid">
-          <article class="legal-card">
-            <h2>Support</h2>
-            <p>Questions about setup, adapters, subscriptions, or troubleshooting should route through your branded support address.</p>
-            <a class="text-link" href="support/">Open support options</a>
+        <div class="comparison-grid">
+          <article class="comparison-card comparison-card--muted" data-reveal>
+            <span class="panel-kicker">Typical approach</span>
+            <h3>Search, scroll, guess.</h3>
+            <ul>
+              <li>Information is scattered across fault code pages, forum threads, and conflicting opinions.</li>
+              <li>Symptoms, images, and sounds rarely get interpreted together.</li>
+              <li>You still have to decide which next check is actually worth your time.</li>
+            </ul>
           </article>
-          <article class="legal-card">
-            <h2>Legal pages</h2>
-            <p>Privacy, terms, and deletion instructions are published here so they live on the same domain as the app support contact.</p>
-            <div class="pill-row">
-              <a class="text-link" href="privacy-policy.html">Privacy policy</a>
-              <a class="text-link" href="terms/">Terms of service</a>
-              <a class="text-link" href="delete-data/">Data deletion</a>
+          <article class="comparison-card comparison-card--strong" data-reveal>
+            <span class="panel-kicker">Pocket AI Mechanic</span>
+            <h3>Faster, more targeted, more practical.</h3>
+            <ul>
+              <li>Multi-input AI can combine what you see, hear, describe, and read from the vehicle.</li>
+              <li>The workflow is built around diagnosis, not content browsing.</li>
+              <li>You get likely causes and sensible next actions in one place.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- App Preview -->
+      <section class="landing-section" id="app-preview" aria-labelledby="preview-title">
+        <div class="section-intro" data-reveal>
+          <span class="section-tag">App preview</span>
+          <h2 id="preview-title">A polished workflow you can actually use.</h2>
+          <p>Real product screens make the case better than a concept mockup. These previews show the app moving from capture to analysis to action.</p>
+        </div>
+        <div class="preview-grid">
+          <article class="preview-card preview-card--tall glass-panel" data-reveal>
+            <img src="screenshots/05-diagnose-form.png" alt="Pocket AI Mechanic diagnosis form for entering symptoms and context" />
+            <div>
+              <h3>Describe the issue clearly</h3>
+              <p>Start with the symptom pattern instead of a blank search box.</p>
             </div>
           </article>
+          <article class="preview-card preview-card--wide glass-panel" data-reveal>
+            <img src="screenshots/live_data.png" alt="Pocket AI Mechanic live OBD data screen" />
+            <div>
+              <h3>Use live data when the evidence matters</h3>
+              <p>Support the diagnosis with actual ECU context instead of guesswork alone.</p>
+            </div>
+          </article>
+          <article class="preview-card glass-panel" data-reveal>
+            <img src="screenshots/06-camera-capture.png" alt="Pocket AI Mechanic camera capture flow" />
+            <div>
+              <h3>Capture visual clues</h3>
+              <p>Fault lights, leaks, components, labels, and damage all become useful signal.</p>
+            </div>
+          </article>
+          <article class="preview-card glass-panel" data-reveal>
+            <img src="screenshots/10-follow-up-qa.png" alt="Pocket AI Mechanic follow-up diagnostic questions" />
+            <div>
+              <h3>Sharpen the answer</h3>
+              <p>Follow-up prompts help narrow the likely fault path without losing momentum.</p>
+            </div>
+          </article>
+          <article class="preview-card glass-panel" data-reveal>
+            <img src="screenshots/12-history-filter-sort.png" alt="Pocket AI Mechanic diagnosis history and saved cases" />
+            <div>
+              <h3>Keep diagnosis history organised</h3>
+              <p>Save, revisit, filter, and export earlier cases when you need them again.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Waitlist / Access -->
+      <section class="landing-section" id="waitlist" aria-labelledby="pricing-title">
+        <div class="section-intro" data-reveal>
+          <span class="section-tag">Waitlist and access</span>
+          <h2 id="pricing-title">Join the waitlist while App Store and Google Play rollout finishes.</h2>
+          <p>The app is still in testing, so the right conversion move today is early access and launch updates, with store links ready to swap in once approvals land.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card glass-panel" data-reveal>
+            <span class="pricing-tier">Waitlist</span>
+            <h3>Get launch updates first</h3>
+            <p>Join the early-access list to hear when the public release, broader compatibility, and store availability go live.</p>
+            <ul>
+              <li>Release notifications</li>
+              <li>Priority product updates</li>
+              <li>Testing and launch news</li>
+            </ul>
+          </article>
+          <article class="pricing-card pricing-card--featured glass-panel" data-reveal>
+            <span class="pricing-tier">Pre-launch</span>
+            <h3>Store pages are in progress</h3>
+            <p>App Store pre-order and Google Play pre-registration are the next clean upgrade once the listings clear review and testing gates.</p>
+            <ul>
+              <li>App Store pre-order coming soon</li>
+              <li>Google Play pre-registration coming soon</li>
+              <li>Easy switch from waitlist to live store links</li>
+            </ul>
+          </article>
+          <article class="pricing-card glass-panel" data-reveal>
+            <span class="pricing-tier">Access</span>
+            <h3>Built for iPhone and Android</h3>
+            <p>The product is being prepared for both platforms, with testing underway before a wider public release.</p>
+            <ul>
+              <li>iPhone rollout in progress</li>
+              <li>Google Play testing in progress</li>
+              <li>Bluetooth OBD compatibility</li>
+              <li>Support via support@pocketaimechanic.com</li>
+            </ul>
+          </article>
+        </div>
+        <div class="access-actions glass-panel" data-reveal>
+          <div>
+            <span class="panel-kicker">Want in early?</span>
+            <h3>Join the waitlist now, then move to store signup when it opens.</h3>
+            <p>Email the support inbox with a short note and you can be notified when App Store pre-order or Google Play pre-registration is live.</p>
+          </div>
+          <div class="access-actions__buttons">
+            <a class="button-link primary" href="mailto:support@pocketaimechanic.com?subject=Pocket%20AI%20Mechanic%20Waitlist&body=Please%20add%20me%20to%20the%20Pocket%20AI%20Mechanic%20waitlist.">Join by Email</a>
+            <a class="button-link secondary" href="guide/">Open User Guide</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="landing-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-intro" data-reveal>
+          <span class="section-tag">FAQ</span>
+          <h2 id="faq-title">Questions drivers ask before they trust the diagnosis.</h2>
+          <p>Clear answers help position the product as serious, capable, and useful for both beginners and experienced enthusiasts.</p>
+        </div>
+        <div class="faq-list" data-reveal>
+          <details class="faq-item" open>
+            <summary>How does the AI diagnosis work?</summary>
+            <p>The app analyses the problem description, available vehicle context, and supporting evidence to rank likely causes and recommend sensible next checks.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can it use photos?</summary>
+            <p>Yes. Photos can add context such as warning lights, leaks, damaged parts, labels, or VIN information that would otherwise be hard to describe accurately.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can it analyse sounds?</summary>
+            <p>Yes. Engine noise and other unusual sounds can be captured and used as part of the issue analysis flow.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Does it work with OBD devices?</summary>
+            <p>Pocket AI Mechanic is designed to work with compatible Bluetooth OBD hardware so code, VIN, and live data context can strengthen the diagnosis.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is it suitable for beginners?</summary>
+            <p>Yes. The workflow is built to make the next step clearer, whether you are an experienced enthusiast or just trying to understand a fault before visiting a workshop.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which vehicles does it support?</summary>
+            <p>The product messaging now positions the app for broad vehicle use, while the in-app workflow and support materials can guide users on compatibility details where needed.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="final-cta glass-panel" data-reveal>
+        <div>
+          <span class="section-tag">Final call</span>
+          <h2>Confidence before the mechanic starts here.</h2>
+          <p>Bring symptoms, photos, sound, and OBD data into one premium diagnosis flow, then join the waitlist for launch access.</p>
+        </div>
+        <div class="final-cta__actions">
+          <a class="button-link primary" href="#waitlist">Join the Waitlist</a>
+          <a class="button-link secondary" href="#features">See Features</a>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer landing-footer">
       <p>Pocket AI Mechanic by Project 3300</p>
       <div class="footer-links">
         <a href="support/">Support</a>
+        <a href="guide/">User Guide</a>
         <a href="privacy/">Privacy</a>
         <a href="terms/">Terms</a>
         <a href="delete-data/">Delete data</a>
-        <a href="guide/">User guide</a>
       </div>
     </footer>
   </div>
