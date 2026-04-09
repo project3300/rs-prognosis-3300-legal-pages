@@ -61,7 +61,7 @@
         <div class="form-layout">
           <article class="form-card" data-reveal>
             <p class="form-intro">Tester signup is limited to the information needed to contact you and match you to Android or iOS test builds.</p>
-            <form class="signup-form" data-mailto-form data-mailto-to="support@pocketaimechanic.com" data-mailto-subject="Pocket AI Mechanic Tester Signup" data-mailto-intro="Pocket AI Mechanic tester signup request">
+            <form class="signup-form" data-mailto-form data-form-type="tester" data-submitting-label="Submitting tester signup..." data-success-message="Thanks. Your tester request has been sent and support will review it." data-error-message="The tester request could not be completed. Please use the direct support email link below." data-mailto-to="support@pocketaimechanic.com" data-mailto-subject="Pocket AI Mechanic Tester Signup" data-mailto-intro="Pocket AI Mechanic tester signup request">
               <div class="form-grid">
                 <div class="field-group full-width">
                   <label for="tester-email">Email address</label>
@@ -76,8 +76,9 @@
                   </select>
                 </div>
               </div>
-              <p class="privacy-note">The site does not save this data. Submission opens your email client with a prefilled message that you can review before sending.</p>
-              <button class="button-link primary" type="submit">Create tester email</button>
+              <p class="privacy-note">The site sends this data to the Pocket AI Mechanic signup workflow. If submission is unavailable, you can still use the direct support email link below.</p>
+              <button class="button-link primary" type="submit">Submit tester signup</button>
+              <p class="form-status" data-form-status aria-live="polite" hidden></p>
               <a class="text-link fallback-link" href="mailto:support@pocketaimechanic.com?subject=Pocket%20AI%20Mechanic%20Tester%20Signup">Email support directly instead</a>
             </form>
           </article>
@@ -121,6 +122,7 @@
     </footer>
   </div>
   <script src="../landing.js"></script>
+  <script src="../forms-config.js"></script>
   <script src="../forms.js"></script>
 </body>
 </html>

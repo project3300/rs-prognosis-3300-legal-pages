@@ -62,7 +62,7 @@
         <div class="form-layout">
           <article class="form-card" data-reveal>
             <p class="form-intro">We only ask for the details needed to contact you about pre-release availability and platform fit.</p>
-            <form class="signup-form" data-mailto-form data-mailto-to="support@pocketaimechanic.com" data-mailto-subject="Pocket AI Mechanic Pre-release Signup" data-mailto-intro="Pocket AI Mechanic pre-release signup request">
+            <form class="signup-form" data-mailto-form data-form-type="prerelease" data-submitting-label="Submitting pre-release signup..." data-success-message="Thanks. Your pre-release request has been sent and support will follow up when access is available." data-error-message="The pre-release request could not be completed. Please use the direct support email link below." data-mailto-to="support@pocketaimechanic.com" data-mailto-subject="Pocket AI Mechanic Pre-release Signup" data-mailto-intro="Pocket AI Mechanic pre-release signup request">
               <div class="form-grid">
                 <div class="field-group full-width">
                   <label for="prerelease-email">Email address</label>
@@ -78,8 +78,9 @@
                   </select>
                 </div>
               </div>
-              <p class="privacy-note">This website does not retain the form contents. Submitting opens your default email client so you can review and send the message yourself.</p>
-              <button class="button-link primary" type="submit">Create pre-release email</button>
+              <p class="privacy-note">The site sends this data to the Pocket AI Mechanic signup workflow. If submission is unavailable, you can still use the direct support email link below.</p>
+              <button class="button-link primary" type="submit">Submit pre-release signup</button>
+              <p class="form-status" data-form-status aria-live="polite" hidden></p>
               <a class="text-link fallback-link" href="mailto:support@pocketaimechanic.com?subject=Pocket%20AI%20Mechanic%20Pre-release%20Signup">Email support directly instead</a>
             </form>
           </article>
@@ -123,6 +124,7 @@
     </footer>
   </div>
   <script src="../landing.js"></script>
+  <script src="../forms-config.js"></script>
   <script src="../forms.js"></script>
 </body>
 </html>

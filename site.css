@@ -547,6 +547,32 @@ img {
   background: rgba(15, 118, 110, 0.08);
 }
 
+.form-status {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+
+.form-status--pending {
+  color: #6b4a11;
+  background: rgba(201, 111, 26, 0.14);
+  border-color: rgba(201, 111, 26, 0.24);
+}
+
+.form-status--success {
+  color: #0f5b56;
+  background: rgba(15, 118, 110, 0.12);
+  border-color: rgba(15, 118, 110, 0.24);
+}
+
+.form-status--error {
+  color: #8d2431;
+  background: rgba(185, 28, 28, 0.1);
+  border-color: rgba(185, 28, 28, 0.18);
+}
+
 .fallback-link {
   margin-top: 4px;
 }
