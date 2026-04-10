@@ -89,6 +89,27 @@ body.landing-body::before {
   gap: 12px;
 }
 
+.landing-body .header-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(83, 213, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f4fbff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.landing-body .header-menu-toggle:hover,
+.landing-body .header-menu-toggle:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .landing-body .brand-lockup img {
   width: 46px;
   height: 46px;
@@ -896,6 +917,15 @@ body.landing-body::before {
   font: inherit;
 }
 
+.landing-body .field-group select {
+  color-scheme: dark;
+}
+
+.landing-body .field-group select option {
+  color: #f4fbff;
+  background: #10212a;
+}
+
 .landing-body .field-group textarea {
   min-height: 120px;
   resize: vertical;
@@ -1074,6 +1104,34 @@ body.landing-body::before {
     padding-top: 10px;
   }
 
+  .landing-body .site-header.landing-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand toggle"
+      "nav nav"
+      "meta meta";
+    align-items: center;
+  }
+
+  .landing-body .header-menu-toggle {
+    display: inline-flex;
+    grid-area: toggle;
+    justify-self: end;
+  }
+
+  .landing-body .landing-header .site-nav.landing-nav,
+  .landing-body .landing-header .header-meta {
+    display: none;
+  }
+
+  .landing-body .landing-header.menu-open .site-nav.landing-nav {
+    display: flex;
+  }
+
+  .landing-body .landing-header.menu-open .header-meta {
+    display: grid;
+  }
+
   .landing-body .site-header.landing-header,
   .landing-hero,
   .proof-panel,
@@ -1119,6 +1177,11 @@ body.landing-body::before {
   .header-socials,
   .header-stores {
     width: 100%;
+  }
+
+  .landing-body .site-nav.landing-nav,
+  .landing-body .header-meta {
+    margin-top: 6px;
   }
 
   .header-action-row,
