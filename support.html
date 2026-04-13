@@ -9,19 +9,26 @@
   <link rel="icon" type="image/png" href="assets/icons/app_icon.png" />
   <link rel="apple-touch-icon" href="assets/icons/app_icon.png" />
   <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+  />
   <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="landing.css" />
 </head>
-<body>
-  <div class="page-shell">
-    <header class="site-header">
-      <a class="brand-lockup" href="/" aria-label="Pocket AI Mechanic home">
-        <img src="../assets/icons/app_icon.png" alt="Pocket AI Mechanic app icon" />
+<body class="landing-body">
+  <div class="page-shell page-shell--landing">
+    <header class="site-header landing-header">
+      <a class="brand-lockup landing-lockup" href="/" aria-label="Pocket AI Mechanic home">
+        <img src="assets/icons/app_icon.png" alt="Pocket AI Mechanic app icon" />
         <span>
           <span class="brand-kicker">Pocket AI Mechanic</span>
           <span class="brand-name">Support</span>
         </span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="site-nav landing-nav" aria-label="Primary">
         <a href="/">Home</a>
         <a href="guide/">User Guide</a>
         <a href="privacy/">Privacy</a>
@@ -30,7 +37,7 @@
       </nav>
     </header>
 
-    <main>
+    <main class="landing-main">
       <section class="content-block">
         <div class="section-heading">
           <div>
