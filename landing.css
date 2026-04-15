@@ -255,6 +255,23 @@ body.landing-body::before {
   color: #f4fbff;
 }
 
+.store-badge[href] {
+  text-decoration: none;
+}
+
+.store-badge--live {
+  border-color: rgba(124, 255, 182, 0.42);
+  background: linear-gradient(135deg, rgba(124, 255, 182, 0.14), rgba(83, 213, 255, 0.12));
+  box-shadow: 0 0 0 rgba(124, 255, 182, 0.35);
+  animation: store-badge-pulse 1.5s ease-in-out infinite;
+}
+
+.store-badge--live:hover,
+.store-badge--live:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 6px rgba(124, 255, 182, 0.08), 0 18px 34px rgba(0, 0, 0, 0.24);
+}
+
 .store-badge__content {
   display: grid;
   line-height: 1.1;
@@ -273,11 +290,46 @@ body.landing-body::before {
   text-transform: uppercase;
 }
 
+.store-badge--live .store-badge__status {
+  color: var(--landing-accent);
+  animation: store-badge-flash 1.1s steps(2, end) infinite;
+}
+
 .store-icon {
   width: 18px;
   height: 18px;
   fill: currentColor;
   flex: none;
+}
+
+@keyframes store-badge-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(124, 255, 182, 0.16);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(124, 255, 182, 0.03);
+  }
+}
+
+@keyframes store-badge-flash {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store-badge--live,
+  .store-badge--live .store-badge__status {
+    animation: none;
+  }
 }
 
 .landing-hero,
