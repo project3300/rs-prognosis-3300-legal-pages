@@ -1003,6 +1003,40 @@ body.landing-body::before {
   border-left: 4px solid var(--landing-brand);
 }
 
+.landing-body .support-card,
+.landing-body .legal-card {
+  color: var(--ink);
+}
+
+.landing-body .support-card h2,
+.landing-body .legal-card h2 {
+  color: var(--ink);
+}
+
+.landing-body .support-card p,
+.landing-body .support-card li,
+.landing-body .legal-card p,
+.landing-body .legal-card li,
+.landing-body .support-card ol,
+.landing-body .legal-card ol {
+  color: var(--muted);
+}
+
+.landing-body .support-card .callout,
+.landing-body .legal-card .callout {
+  color: var(--ink);
+  background: rgba(201, 111, 26, 0.08);
+  border-color: rgba(201, 111, 26, 0.18);
+  border-left-color: var(--accent);
+}
+
+.landing-body .support-card .button-link.secondary,
+.landing-body .legal-card .button-link.secondary {
+  color: var(--ink);
+  background: rgba(29, 36, 39, 0.04);
+  border-color: rgba(29, 36, 39, 0.12);
+}
+
 .landing-body .flow-step-card {
   display: grid;
   gap: 16px;
