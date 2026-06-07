@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="GaugeKing support center with troubleshooting steps, adapter guidance, telemetry notes, and support contact details."
+  />
+  <meta name="theme-color" content="#0f766e" />
+  <title>GaugeKing Support - Pocket AI Mechanic</title>
+  <link rel="icon" type="image/png" href="../../assets/icons/app_icon.png" />
+  <link rel="apple-touch-icon" href="../../assets/icons/app_icon.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <link rel="stylesheet" href="../../site.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand-lockup" href="/" aria-label="Pocket AI Mechanic home">
+        <img src="../../assets/icons/app_icon.png" alt="Pocket AI Mechanic app icon" />
+        <span>
+          <span class="brand-kicker">Pocket AI Mechanic</span>
+          <span class="brand-name">GaugeKing Support</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/gaugeking/">GaugeKing</a>
+        <a href="/support/gaugeking/">Support</a>
+        <a href="/guide/">Guide</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="content-block">
+        <div class="section-heading">
+          <div>
+            <h1 class="section-title">GaugeKing support center</h1>
+            <p class="section-copy">
+              Use this page as the official support endpoint for app stores, users, and support emails.
+              It includes quick fixes, setup guidance, and escalation details.
+            </p>
+          </div>
+        </div>
+
+        <div class="support-layout">
+          <article class="support-card">
+            <h2>Contact support</h2>
+            <p>
+              Email: <a class="text-link" href="mailto:support@pocketaimechanic.com?subject=GaugeKing%20Support">support@pocketaimechanic.com</a>
+            </p>
+            <div class="callout">
+              Include your device model, iOS version, vehicle profile, OBD adapter type,
+              and screenshots of the dashboard when possible.
+            </div>
+
+            <h2>Before contacting us</h2>
+            <ol>
+              <li>Confirm Bluetooth and permissions are enabled for the app.</li>
+              <li>Power-cycle the OBD adapter and retry connection.</li>
+              <li>Verify the selected vehicle profile matches your setup.</li>
+              <li>If using Demo/Test Mode, confirm expected scenario and manual overrides.</li>
+            </ol>
+          </article>
+
+          <article class="support-card">
+            <h2>Common troubleshooting</h2>
+            <h3>Adapter not connecting</h3>
+            <ul>
+              <li>Check ignition state and adapter power LED.</li>
+              <li>Ensure the adapter is not already paired to another app.</li>
+              <li>Retry scan from the Adapter screen after a full disconnect.</li>
+            </ul>
+
+            <h3>No RPM or gauge values</h3>
+            <ul>
+              <li>Some values depend on PID support from your vehicle ECU.</li>
+              <li>Use Generic profile first, then compare with model-specific profiles.</li>
+              <li>Enable Test Mode to validate UI behavior independent of vehicle data.</li>
+            </ul>
+
+            <h3>Layout or gauge visibility issues</h3>
+            <ul>
+              <li>Open Edit Layout and confirm gauges are in the Now Showing section.</li>
+              <li>Use reorder controls to move gauges to preferred positions.</li>
+              <li>Save layout changes before leaving the editor.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-block">
+        <div class="section-heading">
+          <div>
+            <h2 class="section-title">Feature support notes</h2>
+            <p class="section-copy">These notes explain advanced behavior that users commonly ask about.</p>
+          </div>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Synthetic Power and Torque</h3>
+            <p>
+              GaugeKing can calculate synthetic values when direct ECU data is missing.
+              Source labels indicate whether values are measured, derived, or estimated.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Shift Light Modes</h3>
+            <p>
+              F1/GT3 and Tach Colour shift light widgets follow your configured thresholds,
+              warning zone percent, and optional per-gear shift points.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Demo/Test Mode</h3>
+            <p>
+              Demo scenarios are intended for safe previewing and validation.
+              They should not be interpreted as live vehicle measurements.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-block">
+        <div class="section-heading">
+          <div>
+            <h2 class="section-title">Links for users and reviewers</h2>
+            <p class="section-copy">Useful links for app listing, tester onboarding, and compliance references.</p>
+          </div>
+        </div>
+
+        <div class="legal-grid">
+          <article class="legal-card">
+            <h2>Product page</h2>
+            <p>Overview of GaugeKing capabilities and positioning.</p>
+            <a class="text-link" href="/gaugeking/">Open GaugeKing marketing page</a>
+          </article>
+          <article class="legal-card">
+            <h2>Legal pages</h2>
+            <p>Privacy, terms, and deletion links for app store and support references.</p>
+            <div class="pill-row">
+              <a class="text-link" href="/privacy/">Privacy</a>
+              <a class="text-link" href="/terms/">Terms</a>
+              <a class="text-link" href="/delete-data/">Delete data</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>GaugeKing support</p>
+      <div class="footer-links">
+        <a href="/gaugeking/">Marketing</a>
+        <a href="/support/gaugeking/">Support</a>
+        <a href="mailto:support@pocketaimechanic.com">Email</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
