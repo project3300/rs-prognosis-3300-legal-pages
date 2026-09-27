@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="GaugeKing is a premium digital gauge dashboard app with live OBD-II telemetry, customizable layouts, synthetic performance gauges, and Test Mode for demos."
+    content="Gauge King has moved to its new dedicated website at www.gaugeking.com.au."
   />
   <meta name="theme-color" content="#04080c" />
-  <title>GaugeKing - Live OBD-II Dashboard</title>
+  <title>Gauge King - New Website</title>
   <link rel="icon" type="image/png" href="../assets/icons/app_icon.png" />
   <link rel="apple-touch-icon" href="../assets/icons/app_icon.png" />
   <link rel="manifest" href="../site.webmanifest" />
@@ -18,167 +18,88 @@
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../landing.css" />
   <style>
-    .gk-feature-grid {
+    .gk-moved {
+      min-height: 68vh;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin-top: 28px;
+      place-items: center;
+      text-align: center;
+      padding: 72px 24px;
     }
-    .gk-feature-card {
-      padding: 26px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, rgba(10,20,29,0.84), rgba(8,16,24,0.72));
-      border: 1px solid rgba(255,255,255,0.08);
+
+    .gk-moved-card {
+      width: min(760px, 100%);
+      padding: clamp(32px, 6vw, 64px);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(10,20,29,0.88), rgba(8,16,24,0.76));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.32);
       backdrop-filter: blur(18px);
     }
-    .gk-feature-card .feature-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: rgba(83,213,255,0.12);
-      border: 1px solid rgba(83,213,255,0.2);
-      color: #53d5ff;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.06em;
+
+    .gk-moved-card img {
+      width: min(260px, 75%);
+      height: auto;
+      margin-bottom: 28px;
+    }
+
+    .gk-moved-card .eyebrow {
+      display: inline-block;
       margin-bottom: 14px;
     }
-    .gk-feature-card h3 {
-      margin: 0 0 10px;
+
+    .gk-moved-card h1 {
+      margin: 0 0 18px;
       color: #f4fbff;
-      font-size: 18px;
       font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.05;
     }
-    .gk-feature-card p {
-      margin: 0;
-      color: #9aa9b6;
+
+    .gk-moved-card p {
+      margin: 0 auto 30px;
+      max-width: 56ch;
+      color: #aebbc5;
+      font-size: clamp(16px, 2vw, 19px);
       line-height: 1.7;
-      font-size: 15px;
     }
-    .gk-video-section {
-      margin-top: 28px;
-    }
-    .gk-video-wrap {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      border-radius: 20px;
-      overflow: hidden;
-      background: rgba(10,20,29,0.84);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .gk-video-wrap video,
-    .gk-video-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .gk-hero-badges {
+
+    .gk-moved-actions {
       display: flex;
+      justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
     }
-    .gk-badge {
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #e4f5fa;
-      font-weight: 700;
-      font-size: 13px;
-    }
-    .gk-links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 18px;
-      margin-top: 28px;
-    }
-    .gk-link-card {
-      padding: 26px;
-      border-radius: 20px;
-      background: linear-gradient(180deg,rgba(10,20,29,0.84),rgba(8,16,24,0.72));
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .gk-link-card h2 {
-      margin: 0 0 10px;
-      color: #f4fbff;
-      font-size: 20px;
-      font-family: "Space Grotesk", sans-serif;
-    }
-    .gk-link-card p { margin: 0 0 16px; color: #9aa9b6; line-height:1.6; font-size:15px; }
-    .gk-pill-row { display:flex; flex-wrap:wrap; gap:10px; }
+
     .landing-footer {
-      margin-top: 60px;
-      padding-top: 32px;
+      padding: 28px 0 36px;
       border-top: 1px solid rgba(255,255,255,0.08);
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 16px;
     }
-    .landing-footer p { color: #9aa9b6; margin: 0; font-size: 14px; }
-    .landing-footer .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
-    .landing-footer .footer-links a { color:#9aa9b6; text-decoration:none; font-size:14px; }
-    .landing-footer .footer-links a:hover { color:#53d5ff; }
-    .gk-section-intro { margin-bottom: 8px; }
-    .gk-section-intro .section-tag {
-      display: inline-block;
-      color: #53d5ff;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-    .gk-section-intro h2 {
-      margin: 0 0 10px;
-      color: #f4fbff;
-      font-size: clamp(26px,3.5vw,38px);
-      font-family: "Space Grotesk", sans-serif;
-    }
-    .gk-section-intro p { margin: 0; color: #9aa9b6; line-height:1.7; max-width: 64ch; }
-    .gk-release-banner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 28px 30px;
-      border: 1px solid rgba(124, 255, 182, 0.24);
-      border-radius: 20px;
-      background: linear-gradient(110deg, rgba(12, 39, 38, 0.9), rgba(9, 25, 34, 0.78));
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
-    }
-    .gk-release-copy h2 {
-      margin: 0 0 8px;
-      color: #f4fbff;
-      font-size: clamp(24px, 3vw, 34px);
-      font-family: "Space Grotesk", sans-serif;
-    }
-    .gk-release-copy p {
-      max-width: 66ch;
+
+    .landing-footer p {
       margin: 0;
-      color: #b7c7ce;
-      line-height: 1.65;
+      color: #8fa0ad;
+      font-size: 14px;
     }
-    .gk-release-banner .button-link {
-      flex: 0 0 auto;
-      white-space: nowrap;
+
+    .landing-footer .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    @media (max-width: 720px) {
-      .gk-release-banner {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 24px;
-      }
-      .gk-release-banner .button-link {
-        white-space: normal;
-      }
+
+    .landing-footer .footer-links a {
+      color: #9aa9b6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .landing-footer .footer-links a:hover {
+      color: #53d5ff;
     }
   </style>
 </head>
@@ -186,208 +107,50 @@
   <div class="page-shell page-shell--landing">
     <header class="site-header landing-header" data-header>
       <a class="brand-lockup landing-lockup" href="/" aria-label="Pocket AI Mechanic home">
-        <img src="../assets/icons/gaugeking_logo.png" alt="GaugeKing logo" />
+        <img src="../assets/icons/gaugeking_logo.png" alt="Gauge King logo" />
         <span>
           <span class="brand-kicker">Pocket AI Mechanic</span>
-          <span class="brand-name">GaugeKing</span>
+          <span class="brand-name">Gauge King</span>
         </span>
       </a>
       <nav class="site-nav landing-nav" aria-label="Primary">
         <a href="/">Home</a>
-        <a href="/gaugeking/">GaugeKing</a>
+        <a href="https://www.gaugeking.com.au/" target="_blank" rel="noopener noreferrer">Gauge King</a>
         <a href="/support/gaugeking/">Support</a>
         <a href="/privacy/">Privacy</a>
       </nav>
-      <a class="button-link primary header-cta" href="/support/gaugeking/">Get support</a>
     </header>
 
     <main class="landing-main">
-
-      <!-- Hero -->
-      <section class="landing-hero">
-        <div class="hero-copy" data-reveal>
-          <span class="eyebrow">Live OBD-II dashboard</span>
-          <h1>GaugeKing</h1>
-          <p class="hero-lead">
-            A fast, high-contrast digital dashboard for enthusiasts who want more than basic gauges.
-            Read live OBD-II telemetry, design your own layout, and monitor the exact data you care about.
-          </p>
-          <p class="hero-support">
-            Connect any compatible Bluetooth OBD-II adapter, choose your gauges, pick your theme,
-            and drive with the information that actually matters to you.
-          </p>
-          <div class="hero-actions">
-            <a class="button-link primary" href="/support/gaugeking/">Get support</a>
-            <a class="button-link secondary" href="#features">See features</a>
-            <a class="button-link tertiary" href="#demo">Watch demo</a>
-          </div>
-          <div class="gk-hero-badges">
-            <span class="gk-badge">Live OBD-II telemetry</span>
-            <span class="gk-badge">Customisable layouts</span>
-            <span class="gk-badge">Synthetic power &amp; torque</span>
-            <span class="gk-badge">Shift lights</span>
-            <span class="gk-badge">Demo mode</span>
-          </div>
-        </div>
-
-        <div class="hero-visual" data-reveal>
-          <div class="signal-surface glass-panel">
-            <div class="surface-head">
-              <span>Live telemetry</span>
-              <span>Custom gauge session</span>
-            </div>
-            <div class="surface-grid">
-              <article class="surface-card">
-                <span class="surface-label">Connect</span>
-                <strong>Bluetooth OBD-II</strong>
-                <p>Pair any compatible ELM327 adapter and start reading PIDs in seconds.</p>
-              </article>
-              <article class="surface-card">
-                <span class="surface-label">Configure</span>
-                <strong>Your layout, your data</strong>
-                <p>Pick up to 6 gauges, reorder them, change colours, and save your layout.</p>
-              </article>
-              <article class="surface-card surface-card--accent">
-                <span class="surface-label">Drive</span>
-                <strong>Real-time insight</strong>
-                <p>RPM, speed, coolant, IAT, power, torque, fuel, shift lights and more.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Release announcement -->
-      <section class="landing-section gk-release-banner" aria-labelledby="release-title">
-        <div class="gk-release-copy" data-reveal>
-          <span class="section-tag">Now available on the App Store</span>
-          <h2 id="release-title">GaugeKing 1.3.4 is here</h2>
+      <section class="gk-moved" aria-labelledby="gk-moved-title">
+        <div class="gk-moved-card" data-reveal>
+          <img src="../assets/icons/gaugeking_logo.png" alt="Gauge King" />
+          <span class="eyebrow">Gauge King has moved</span>
+          <h1 id="gk-moved-title">Visit the new Gauge King website</h1>
           <p>
-            The latest release brings Apple CarPlay and Siri integration to your drive.
-            Keep your telemetry within reach on the road and use your voice to stay focused
-            on driving.
+            Gauge King now has its own dedicated home for app information, telemetry features,
+            Gauge King Vision, track results and future updates.
           </p>
-        </div>
-        <a class="button-link primary" href="https://apps.apple.com/au/app/gauge-king/id6777585502" target="_blank" rel="noopener noreferrer">
-          Download on the App Store
-        </a>
-      </section>
-
-      <!-- Audio Alerts Video -->
-      <section class="landing-section gk-video-section" id="audio-alerts" aria-labelledby="audio-alerts-title">
-        <div class="gk-section-intro" data-reveal>
-          <span class="section-tag">Audio alerts</span>
-          <h2 id="audio-alerts-title">Gauge King has your back. With audible alerts you will instantly know if your oil pressure drops or tempratures exceed limits you define.</h2>
-          <p>See how GaugeKing uses clear audio alerts to bring important driving information to your attention.</p>
-        </div>
-        <div class="gk-video-wrap" data-reveal>
-          <video controls playsinline preload="metadata" aria-label="GaugeKing audio alerts video">
-            <source src="../media/GaugeKingAudioAlerts.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </section>
-
-      <!-- Demo Video -->
-      <section class="landing-section gk-video-section" id="demo" aria-labelledby="demo-title">
-        <div class="gk-section-intro" data-reveal>
-          <span class="section-tag">App demo</span>
-          <h2 id="demo-title">See GaugeKing in action</h2>
-          <p>A walkthrough of the live dashboard, layout editor, and synthetic gauge modes.</p>
-        </div>
-        <div class="gk-video-wrap" data-reveal>
-          <video controls playsinline preload="metadata" aria-label="GaugeKing demo video">
-            <source src="../media/GaugeKingPreview.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </section>
-
-      <!-- Features -->
-      <section class="landing-section" id="features" aria-labelledby="features-title">
-        <div class="gk-section-intro" data-reveal>
-          <span class="section-tag">Core features</span>
-          <h2 id="features-title">What makes GaugeKing different</h2>
-          <p>
-            GaugeKing focuses on clarity, trust, and driving context. Each reading is shown
-            with practical visual hierarchy so you can glance and decide quickly.
-          </p>
-        </div>
-        <div class="gk-feature-grid">
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">OBD</span>
-            <h3>Live OBD-II Telemetry</h3>
-            <p>Connect any compatible Bluetooth ELM327 adapter and read RPM, speed, coolant, IAT, throttle, MAF, timing, and more in real time.</p>
-          </article>
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">LAY</span>
-            <h3>Custom Dashboard Layouts</h3>
-            <p>Select your gauges, reorder them with up/down controls, and tune the dashboard style. Keep it minimal for track or rich for full monitoring.</p>
-          </article>
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">PWR</span>
-            <h3>Synthetic Power &amp; Torque</h3>
-            <p>Estimated power (kW/hp) and torque (Nm) gauges derived from OBD data when direct ECU readings are not available, with transparent source labels.</p>
-          </article>
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">RPM</span>
-            <h3>Motorsport Shift Lights</h3>
-            <p>F1/GT3 LED strip and Tach Colour shift indicators with configurable RPM thresholds, warning zones, per-gear shift points, and flash states.</p>
-          </article>
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">CAR</span>
-            <h3>Vehicle Profiles</h3>
-            <p>Select Generic OBD-II, Mustang S550, or Mustang S650. Each profile adapts telemetry gating, displacement, and torque/power estimation to your car.</p>
-          </article>
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">TST</span>
-            <h3>Demo / Test Mode</h3>
-            <p>Built-in synthetic scenarios let you preview behavior, validate widget logic, and demonstrate the app without requiring a live adapter or vehicle.</p>
-          </article>
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">AUD</span>
-            <h3>Audible Warnings</h3>
-            <p>Hear clear alerts when oil pressure or other monitored temperatures cross your configurable thresholds, so important changes never go unnoticed.</p>
-          </article>
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">SIR</span>
-            <h3>Siri Commands</h3>
-            <p>Use Siri commands to interact with GaugeKing more naturally while keeping your attention on the road.</p>
-          </article>
-          <article class="gk-feature-card" data-reveal>
-            <span class="feature-icon">CP</span>
-            <h3>Apple CarPlay Enabled</h3>
-            <p>Bring GaugeKing into your compatible vehicle with an Apple CarPlay experience designed for clear, glanceable driving information.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="final-cta" aria-labelledby="cta-title">
-        <div class="glass-panel" style="padding:40px;border-radius:24px;text-align:center;">
-          <span class="section-tag" style="display:inline-block;margin-bottom:14px;">Ready to drive smarter?</span>
-          <h2 id="cta-title" style="margin:0 0 14px;color:#f4fbff;font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,3.5vw,40px);">Get GaugeKing on the App Store</h2>
-          <p style="color:#9aa9b6;max-width:54ch;margin:0 auto 28px;line-height:1.7;">Download GaugeKing, connect your OBD-II adapter, and turn your iPhone into a real-time performance dashboard.</p>
-          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-            <a class="button-link primary" href="https://apps.apple.com/au/app/gauge-king/id6777585502" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
-            <a class="button-link primary" href="/support/gaugeking/">Support &amp; help</a>
-            <a class="button-link secondary" href="mailto:support@pocketaimechanic.com?subject=GaugeKing">Contact us</a>
+          <div class="gk-moved-actions">
+            <a class="button-link primary" href="https://www.gaugeking.com.au/" target="_blank" rel="noopener noreferrer">
+              Go to www.gaugeking.com.au
+            </a>
+            <a class="button-link secondary" href="/support/gaugeking/">Gauge King support</a>
           </div>
         </div>
       </section>
-
     </main>
 
     <footer class="landing-footer">
-      <p>GaugeKing by Pocket AI Mechanic &mdash; &copy; 2026</p>
+      <p>&copy; <span data-year></span> Pocket AI Mechanic. All rights reserved.</p>
       <div class="footer-links">
-        <a href="/gaugeking/">GaugeKing</a>
+        <a href="https://www.gaugeking.com.au/" target="_blank" rel="noopener noreferrer">New Gauge King website</a>
         <a href="/support/gaugeking/">Support</a>
         <a href="/privacy/">Privacy</a>
-        <a href="/terms/">Terms</a>
       </div>
     </footer>
   </div>
-  <script src="../landing.js" defer></script>
+
+  <script src="../landing.js"></script>
 </body>
 </html>
